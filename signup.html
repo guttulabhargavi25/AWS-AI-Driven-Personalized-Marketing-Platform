@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup | AWS Marketing App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">AWS Marketing App</div>
+        <div class="nav-links">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('login') }}">Login</a>
+        </div>
+    </div>
+
+    <!-- Signup Card -->
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Create Account</h2>
+
+            <form method="POST">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
+                 <!-- Role Selection -->
+                <div class="form-group">
+                    <label>Role</label>
+                    <select name="role" required>
+                        <option value="">-- Select Role --</option>
+                        <option value="admin">Admin</option>
+                        <option value="marketer">Marketer</option>
+                        <option value="staff">Staff</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn">Signup</button>
+            </form>
+
+            <p class="auth-text">
+                Already have an account?
+                <a href="{{ url_for('login') }}">Login</a>
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

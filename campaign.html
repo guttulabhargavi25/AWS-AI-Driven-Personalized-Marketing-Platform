@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Campaign | AWS Marketing App</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #f4f6f9;
+        }
+
+        /* HEADER */
+        header {
+            background-color: #0b8b99;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        header a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        header a:hover {
+            text-decoration: underline;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        /* CARD */
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 25px;
+            color: #333;
+            text-align: center;
+        }
+
+        /* FORM GRID */
+        .form-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            margin-bottom: 20px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        /* AI BOX */
+        .ai-box {
+            background: #eef7f8;
+            border-left: 5px solid #0b8b99;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .ai-box h4 {
+            margin: 0 0 8px;
+            color: #0b8b99;
+            font-size: 15px;
+        }
+
+        .ai-box p {
+            margin: 0;
+            font-size: 14px;
+            color: #444;
+        }
+
+        /* BUTTON */
+        .btn {
+            background-color: #0b8b99;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 15px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #097985;
+        }
+
+        .btn-center {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <h1>AWS Marketing App</h1>
+    <div>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/campaign_history">Campaigns</a>
+        <a href="/logout">Logout</a>
+    </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+    <div class="card">
+        <h2>Create Marketing Campaign</h2>
+
+        <form method="POST">
+
+            <div class="form-group">
+                <div>
+                    <label>Campaign Name</label>
+                    <input type="text" name="name" required>
+                </div>
+
+                <div>
+                    <label>Target Audience</label>
+                    <select name="target">
+                        <option>Active Users</option>
+                        <option>New Users</option>
+                        <option>Premium Customers</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label>Channel</label>
+                <select name="channel" required>
+                    <option value="">Select channel</option>
+                    <option value="Email">Email</option>
+                    <option value="SMS">SMS</option>
+                    <option value="Social">Social Media</option>
+                </select>
+            </div>
+
+            <!-- ✅ AI RECOMMENDATION BOX -->
+            <div class="ai-box">
+                <h4>AI Recommendation</h4>
+                <p>Best channel will be selected automatically based on customer engagement score and preferred channel.</p>
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <label>Status</label>
+                    <select name="status">
+                        <option>Active</option>
+                        <option>Ended</option>
+                        <option>Paused</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row two-column">
+                <div>
+                    <label>Start Date</label>
+                    <input type="date" name="start_date" required>
+                </div>
+
+                <div>
+                    <label>End Date</label>
+                    <input type="date" name="end_date" required>
+                </div>
+            </div>
+
+            <div class="btn-center">
+                <button type="submit" class="btn">Launch Campaign</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

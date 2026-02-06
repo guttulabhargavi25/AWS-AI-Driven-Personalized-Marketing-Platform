@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Marketing Platform</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7fb;
+            color: #333;
+            text-align: center;
+        }
+
+        /* HEADER */
+        header {
+            background: #0b8b99;
+            color: white;
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h2 {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #e9f0ff, #ffffff);
+            text-align: center;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 40px;
+            color: #0b8b99;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .hero-text a {
+            padding: 12px 25px;
+            background: #0b8b99;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-right: 15px;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .hero-text a.secondary {
+            background: #6c757d;
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 60px;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card h3 {
+            color: #0b8b99;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #555;
+            font-size: 15px;
+        }
+
+        /* CTA */
+        .cta {
+            background: #0b8b99;
+            color: white;
+            padding: 60px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            margin-bottom: 15px;
+        }
+
+        .cta a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: white;
+            color: #0b8b99;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h2>AI Marketing Platform</h2>
+        <nav>
+            <a href="/login">Login</a>
+            <a href="/signup">Signup</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>AI-Driven Marketing Solutions</h1>
+            <p>
+                Automate campaigns, segment customers intelligently,
+                and boost conversions using AI-powered insights.
+            </p>
+            <a href="/signup">Get Started</a>
+            <a href="/login" class="secondary">Login</a>
+        </div>
+    </section>
+
+    <!-- CAMPAIGN TYPES -->
+    <section class="section">
+        <h2>Types of Campaigns</h2>
+        <p>Launch intelligent campaigns tailored to your customers</p>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>Email Campaigns</h3>
+                <p>AI-personalized emails sent at the perfect time to maximize open rates.</p>
+            </div>
+
+            <div class="card">
+                <h3>Social Media Ads</h3>
+                <p>Automated ad creation and targeting across multiple platforms.</p>
+            </div>
+
+            <div class="card">
+                <h3>SMS Marketing</h3>
+                <p>Instant, high-engagement SMS campaigns driven by customer behavior.</p>
+            </div>
+
+            <div class="card">
+                <h3>Push Notifications</h3>
+                <p>Real-time notifications based on user actions and preferences.</p>
+            </div>
+
+            <div class="card">
+                <h3>Retargeting Ads</h3>
+                <p>Bring back lost customers using AI-driven retargeting strategies.</p>
+            </div>
+
+            <div class="card">
+                <h3>Product Promotions</h3>
+                <p>Run smart promotional campaigns using predictive analytics.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section">
+        <h2>Platform Features</h2>
+        <p>Everything you need to scale your marketing</p>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>Customer Segmentation</h3>
+                <p>AI groups customers based on behavior, demographics, and interests.</p>
+            </div>
+
+            <div class="card">
+                <h3>Campaign Automation</h3>
+                <p>Create, schedule, and manage campaigns automatically.</p>
+            </div>
+
+            <div class="card">
+                <h3>Performance Analytics</h3>
+                <p>Track ROI, engagement, and conversions with smart dashboards.</p>
+            </div>
+
+            <div class="card">
+                <h3>AI Insights</h3>
+                <p>Predict customer actions and optimize marketing decisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Start Your AI Marketing Journey Today</h2>
+        <p>Increase engagement, conversions, and customer retention.</p>
+        <a href="/signup">Create Free Account</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 AI Marketing Platform. All rights reserved.
+    </footer>
+
+</body>
+</html>

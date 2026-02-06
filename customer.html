@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Management | AWS Marketing App</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+        }
+
+        header {
+            background: #0b8b99;
+            color: white;
+            padding: 18px 32px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .top-bar h2 {
+            margin: 0;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #0d6efd;
+            font-weight: 500;
+        }
+
+        /* FORM */
+        .form-card {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .customer-form {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .customer-form input {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #d1d5db;
+            font-size: 14px;
+        }
+
+        .customer-form button {
+            background: #0b8b99;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .customer-form button:hover {
+            background: #087681;
+        }
+
+        /* TABLE */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #f1f3f6;
+            text-align: left;
+            padding: 12px;
+            font-size: 14px;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 14px;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 30px;
+            color: #6b7280;
+        }
+
+        @media (max-width: 900px) {
+            .customer-form {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>AWS Marketing App</header>
+
+<div class="container">
+
+    <div class="top-bar">
+        <h2>Customer Management</h2>
+        <a href="{{ url_for('dashboard') }}" class="back-link">⬅ Back to Dashboard</a>
+    </div>
+
+    <!-- ADD CUSTOMER -->
+    <div class="form-card">
+        <form method="POST" class="customer-form">
+            <input type="text" name="name" placeholder="Customer Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="text" name="phone" placeholder="Phone Number" required>
+            <input type="number" name="opens" placeholder="Email Opens" required>
+            <input type="number" name="clicks" placeholder="Link Clicks" required>
+
+            <button type="submit">Add Customer</button>
+        </form>
+    </div>
+
+    <!-- CUSTOMER LIST -->
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Engagement Score</th>
+                <th>Preferred Channel</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if customers and customers|length > 0 %}
+                {% for c in customers %}
+                <tr>
+                    <td>{{ c["name"] }}</td>
+                    <td>{{ c["email"] }}</td>
+                    <td>{{ c["phone"] }}</td>
+                    <td>{{ c["engagement_score", "N/A"]}}</td>
+                    <td>{{ c["preferred_channel", "N/A"] }}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5" class="empty">No customers added yet</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

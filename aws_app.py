@@ -20,9 +20,19 @@ app.config["SESSION_PERMANENT"] = True
 # =========================================================
 
 AWS_REGION = "us-east-1"
+#SNS topic is pre-created in AWS (Production)
+# This application ONLY publishes messages to the topic.
+ """
+    Publishes a message to AWS SNS.
+
+    - Topic must already exist in AWS.
+    - App does not create or manage SNS topics.
+    - Permissions are provided via IAM Role.
+    """
 SNS_TOPIC_ARN = os.environ.get("SNS_TOPIC_ARN")
 
 dynamodb = boto3.resource("dynamodb", region_name=AWS_REGION)
+# Replace with your actual SNS Topic ARN in AWS
 sns = boto3.client("sns", region_name=AWS_REGION)
 
 users_table = dynamodb.Table("users")
@@ -34,6 +44,20 @@ customers_table = dynamodb.Table("customers")
 # =========================================================
 
 def send_notification(subject, message):
+      """
+    Publishes a notification message to AWS SNS.
+
+    Design Notes:
+    - SNS topic lifecycle is NOT handled by this application.
+    - The topic must already exist in the target AWS account.
+    - This function ONLY publishes messages.
+    - Permissions are provided via IAM Role attached to EC2 / EB.
+
+    This design follows AWS best practices by separating
+    application logic from infrastructure provisioning.
+    """
+
+
     if not SNS_TOPIC_ARN:
         return
     try:
@@ -251,3 +275,4 @@ def forbidden(e):
 
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=False)
+

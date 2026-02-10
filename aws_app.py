@@ -29,8 +29,7 @@ AWS_REGION = "us-east-1"
     - App does not create or manage SNS topics.
     - Permissions are provided via IAM Role.
     """
-SNS_TOPIC_ARN = os.environ.get("SNS_TOPIC_ARN")
-
+SNS_TOPIC_ARN = arn:aws:sns:us-east-1:975050316116:app_notifications:ebdcaae8-1461-404f-9e3e-42923bce1d90
 dynamodb = boto3.resource("dynamodb", region_name=AWS_REGION)
 # Replace with your actual SNS Topic ARN in AWS
 sns = boto3.client("sns", region_name=AWS_REGION)
@@ -275,4 +274,5 @@ def forbidden(e):
 
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=False)
+
 

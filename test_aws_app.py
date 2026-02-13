@@ -64,12 +64,16 @@ from aws_app import app   # IMPORTANT: import AFTER tables exist
 # -------------------------------------------------
 
 if __name__ == "__main__":
-    print("🚀 Running Flask with Moto at http://localhost:5000")
-    app.run(host="127.0.0.1", port=5000, debug=True, use_reloader=False)
+     # Get your local IP (run 'ip addr show' or 'ifconfig' to find it, e.g., 192.168.1.100)
+    print("🚀 Running Flask with Moto mocks at http://0.0.0.0:5000")
+    print("Accessible globally on your network at http://YOUR_LOCAL_IP:5000 (replace YOUR_LOCAL_IP)")
+    print("Example: http://192.168.1.100:5000")
+    print("Allow port 5000 in firewall if needed. Press Ctrl+C to stop.")
+    try:
+        app.run(host="0.0.0.0", port=5000, debug=True, use_reloader=False)
+    except KeyboardInterrupt:
+        print("\nShutting down...")
+    finally:
+     mock.stop()
 
 
-# -------------------------------------------------
-# STOP MOTO ON EXIT
-# -------------------------------------------------
-
-mock.stop()
